@@ -1,0 +1,282 @@
+{
+  "deep_learning": {
+    "#text": "",
+    "functii_de_activare": {
+      "#text": "",
+      "functie": [
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "ReLU"
+          },
+          "layer": [
+            {
+              "#text": "",
+              "nume_layer": {
+                "#text": "Hidden"
+              },
+              "acuratete": {
+                "#text": "Foarte buna"
+              }
+            },
+            {
+              "#text": "",
+              "nume_layer": {
+                "#text": "Output"
+              },
+              "acuratete": {
+                "#text": "Buna"
+              }
+            }
+          ],
+          "avantaj": [
+            {
+              "#text": "eficient computational"
+            },
+            {
+              "#text": "non linear"
+            }
+          ],
+          "dezavantaj": {
+            "#text": "dying relu problem"
+          }
+        },
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "Sigmoid"
+          },
+          "layer": [
+            {
+              "#text": "",
+              "nume_layer": {
+                "#text": "Hidden"
+              },
+              "acuratete": {
+                "#text": "Slabuta"
+              }
+            },
+            {
+              "#text": "",
+              "nume_layer": {
+                "#text": "Output"
+              },
+              "acuratete": {
+                "#text": "OK"
+              }
+            }
+          ],
+          "avantaj": [
+            {
+              "#text": "smooth gradient"
+            },
+            {
+              "#text": "output values bound"
+            },
+            {
+              "#text": "clear predictions"
+            }
+          ],
+          "dezavantaj": [
+            {
+              "#text": "vanishing gradient"
+            },
+            {
+              "#text": "outputs not zero centered"
+            },
+            {
+              "#text": "computationally expensive"
+            }
+          ]
+        },
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "Tangenta hiperbolica"
+          },
+          "layer": [
+            {
+              "#text": "",
+              "nume_layer": {
+                "#text": "Hidden"
+              },
+              "acuratete": {
+                "#text": "Buna"
+              }
+            },
+            {
+              "#text": "",
+              "nume_layer": {
+                "#text": "Output"
+              },
+              "acuratete": {
+                "#text": "OK"
+              }
+            }
+          ],
+          "avantaj": [
+            {
+              "#text": "zero centered"
+            },
+            {
+              "#text": "smooth gradient"
+            },
+            {
+              "#text": "output values bound"
+            },
+            {
+              "#text": "clear predictions"
+            }
+          ],
+          "dezavantaj": [
+            {
+              "#text": "vanishing gradient"
+            },
+            {
+              "#text": "outputs not zero centered"
+            },
+            {
+              "#text": "computationally expensive"
+            }
+          ]
+        },
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "Leaky_ReLU"
+          },
+          "layer": {
+            "#text": "",
+            "nume_layer": {
+              "#text": "Hidden"
+            },
+            "acuratete": {
+              "#text": "Buna"
+            }
+          },
+          "avantaj": [
+            {
+              "#text": "eficient computational"
+            },
+            {
+              "#text": "non linear"
+            },
+            {
+              "#text": "prevents dying"
+            }
+          ],
+          "dezavantaj": {
+            "#text": "results not consistent"
+          }
+        },
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "ReLU_parametrizat"
+          },
+          "layer": {
+            "#text": "",
+            "nume_layer": {
+              "#text": "Hidden"
+            },
+            "acuratete": {
+              "#text": "Buna"
+            }
+          },
+          "avantaj": [
+            {
+              "#text": "eficient computational"
+            },
+            {
+              "#text": "non linear"
+            },
+            {
+              "#text": "allows the negative slope to be learned"
+            }
+          ],
+          "dezavantaj": {
+            "#text": "may perform differently"
+          }
+        },
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "Softmax"
+          },
+          "layer": {
+            "#text": "",
+            "nume_layer": {
+              "#text": "Hidden"
+            },
+            "acuratete": {
+              "#text": "Foarte buna"
+            }
+          },
+          "avantaj": [
+            {
+              "#text": "able to handle multiple classes"
+            },
+            {
+              "#text": "useful for output neurons"
+            }
+          ]
+        },
+        {
+          "#text": "",
+          "nume_functie": {
+            "#text": "Swish"
+          },
+          "layer": {
+            "#text": "",
+            "nume_layer": {
+              "#text": "Hidden"
+            },
+            "acuratete": {
+              "#text": "Foarte buna"
+            }
+          },
+          "avantaj": [
+            {
+              "#text": "performs better than ReLU"
+            },
+            {
+              "#text": "eficient computational"
+            }
+          ],
+          "dezavantaj": {
+            "#text": "experimental"
+          }
+        }
+      ]
+    },
+    "cuantificare_acuratete": {
+      "#text": "",
+      "acuratete_functie": [
+        {
+          "@attributes": {
+            "eroare_fata_de_ideal": "0.1"
+          },
+          "#text": "Foarte buna"
+        },
+        {
+          "@attributes": {
+            "eroare_fata_de_ideal": "0.5"
+          },
+          "#text": "Buna"
+        },
+        {
+          "@attributes": {
+            "eroare_fata_de_ideal": "1"
+          },
+          "#text": "OK"
+        },
+        {
+          "@attributes": {
+            "eroare_fata_de_ideal": "2"
+          },
+          "#text": "Slabuta"
+        }
+      ]
+    }
+  }
+}

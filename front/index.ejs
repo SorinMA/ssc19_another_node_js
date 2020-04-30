@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<title>Tema 2 ssc</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg-1 {
+  background-image: url('front.jpg');
+  min-height: 100%;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+div.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 0px;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+div.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #777;
+  color: white;
+  font-size: 17px;
+  border: 0px;
+  border-left: none;
+  cursor: pointer;
+}
+
+div.example button:hover {
+  background: #777;
+}
+
+div.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+</style>
+<body>
+    
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">New <span class="w3-hide-small">C19</span> info</span>
+  </div>
+</div>
+
+
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge"><%= infos['Global']['NewConfirmed'] %> +</span><br>
+    New Confirmed
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge"><%= infos['Global']['NewDeaths'] %> + </span><br>
+    New Deaths
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge"><%= infos['Global']['NewRecovered'] %> + </span><br>
+    New Recovered
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge"><%= infos['Global']['TotalRecovered'] %> / <%= infos['Global']['TotalDeaths'] %></span><br>
+    Total Recovered / Total Deaths
+  </div>
+
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-center">RESULTS ON COUNTRY</h3>
+    <p class="w3-center"><em>source: <a href="https://api.covid19api.com/summary">covid19api</a></em></p>
+
+</div>
+    
+<div class="example">
+    <input type="text" placeholder="Country.." id='country'>
+    <button type="submit" onclick="get_country()" ><i class="fa fa-search"></i></button>
+</div>
+
+  <br>
+
+  <div class="w3-row w3-center w3-dark-grey w3-padding-16">
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge"><div id = 'NewConfirmed'>0</div></span><br>
+      New Confirmed
+    </div>
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge"><div id = 'NewDeaths'>0</div> </span><br>
+      New Deaths
+    </div>
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge"><div id = 'NewRecovered'>0</div></span><br>
+      New Recovered
+    </div>
+    <div class="w3-quarter w3-section">
+      <span class="w3-xlarge"><div id = 'R/D'>-</div></span><br>
+      Total Recovered / Total Deaths
+    </div>
+  
+  </div>
+
+  <script>
+    let countries_dict = {};
+      function get_country() {
+          let info_c = <%- JSON.stringify(infos) %>;
+          input_country = document.getElementById('country').value;
+          if(Object.keys(countries_dict).length == 0) {
+            for(let i = 0; i < info_c['Countries'].length ; i += 1)
+              countries_dict[info_c['Countries'][i]['Country']] = i;
+          }
+
+          try {
+            our_country = info_c['Countries'][parseInt(countries_dict[input_country])];
+            document.getElementById('NewConfirmed').innerHTML = our_country['NewConfirmed'];
+            document.getElementById('NewDeaths').innerHTML = our_country['NewDeaths'];
+            document.getElementById('NewRecovered').innerHTML = our_country['NewRecovered'];
+            document.getElementById('R/D').innerHTML = our_country['TotalRecovered'] + " / " + our_country['TotalDeaths'];
+          } catch {
+            alert("Wrong name!");
+            document.getElementById('NewConfirmed').innerHTML = '0';
+            document.getElementById('NewDeaths').innerHTML = '0';
+            document.getElementById('NewRecovered').innerHTML = '0';
+            document.getElementById('Country').innerHTML = '-';
+          }
+      }
+  </script>
+</body>
+</html>
